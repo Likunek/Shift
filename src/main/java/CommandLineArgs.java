@@ -1,13 +1,15 @@
+import lombok.Getter;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
 public class CommandLineArgs {
     private final List<File> inputFiles = new ArrayList<>();
     private String outputPath = ".";
     private String prefix = "";
     private boolean appendMode = false;
-    private static Statistics statistic = Statistics.NOT;
+    private DataOutput statistic = DataOutput.NOT;
 
     public static CommandLineArgs parse(String[] args) {
         CommandLineArgs result = new CommandLineArgs();
@@ -26,10 +28,10 @@ public class CommandLineArgs {
                     result.appendMode = true;
                     break;
                 case "-s":
-                    statistic = Statistics.BRIEF;
+                    result.statistic = DataOutput.BRIEF;
                     break;
                 case "-f":
-                    statistic = Statistics.FULL;
+                    result.statistic = DataOutput.FULL;
                     break;
                 default:
                     result.inputFiles.add(new File(args[i]));
@@ -42,21 +44,4 @@ public class CommandLineArgs {
         return result;
     }
 
-    public List<File> getInputFiles() {
-        return inputFiles;
-    }
-
-    public String getOutputPath() {
-        return outputPath;
-    }
-
-    public String getPrefix() {
-        return prefix;
-    }
-
-    public boolean isAppendMode() {
-        return appendMode;
-    }
-
-    public Statistics getStatistic() {return statistic;}
 }

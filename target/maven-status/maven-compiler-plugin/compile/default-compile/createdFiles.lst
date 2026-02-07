@@ -1,8 +1,7 @@
 Main.class
+DataOutput.class
 DataProcessor.class
 Utils.class
 StatisticsCollector.class
 FileWriterHelper.class
-Statistics.class
 CommandLineArgs.class
-ma.class

@@ -1,14 +1,9 @@
-import java.io.File;
-import java.nio.file.Paths;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         try {
-            // Разбор аргументов командной строки
             CommandLineArgs parsedArgs = CommandLineArgs.parse(args);
 
-            // Инициализация процессора данных
             DataProcessor processor = new DataProcessor(
                     parsedArgs.getInputFiles(),
                     parsedArgs.getOutputPath(),
@@ -17,7 +12,6 @@ public class Main {
                     parsedArgs.getStatistic()
             );
 
-            // Запуск обработки данных
             processor.process();
         } catch (IllegalArgumentException e) {
             System.err.println("Ошибка: " + e.getMessage());

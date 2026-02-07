@@ -7,18 +7,18 @@ public class DataProcessor {
     private final String outputPath;
     private final String prefix;
     private final boolean appendMode;
-    private final Statistics statistics;
+    private final DataOutput data;
 
-    public DataProcessor(List<File> inputFiles, String outputPath, String prefix, boolean appendMode, Statistics statistics) {
+    public DataProcessor(List<File> inputFiles, String outputPath, String prefix, boolean appendMode, DataOutput data) {
         this.inputFiles = inputFiles;
         this.outputPath = outputPath;
         this.prefix = prefix;
         this.appendMode = appendMode;
-        this.statistics = statistics;
+        this.data = data;
     }
 
     public void process() {
-        // Статистики
+
         StatisticsCollector intStats = new StatisticsCollector();
         StatisticsCollector floatStats = new StatisticsCollector();
         StatisticsCollector stringStats = new StatisticsCollector();
@@ -52,16 +52,15 @@ public class DataProcessor {
                 }
             }
 
-            // Вывод статистики
-            if (!statistics.equals(Statistics.NOT)) {
+            if (!data.equals(DataOutput.NOT)) {
                 System.out.println("Целые числа:");
-                System.out.println(statistics.equals(Statistics.FULL) ? intStats.getFullStatistics() : intStats.getShortStatistics());
+                System.out.println(data.equals(DataOutput.FULL) ? intStats.getFullStatistics() : intStats.getShortStatistics());
 
                 System.out.println("Вещественные числа:");
-                System.out.println(statistics.equals(Statistics.FULL) ? floatStats.getFullStatistics() : floatStats.getShortStatistics());
+                System.out.println(data.equals(DataOutput.FULL) ? floatStats.getFullStatistics() : floatStats.getShortStatistics());
 
                 System.out.println("Строки:");
-                System.out.println(statistics.equals(Statistics.FULL) ? stringStats.getFullStatistics() : stringStats.getShortStatistics());
+                System.out.println(data.equals(DataOutput.FULL) ? stringStats.getFullStatistics() : stringStats.getShortStatistics());
             }
 
         } catch (IOException e) {

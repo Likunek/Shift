@@ -1,4 +1,4 @@
-public enum Statistics {
+public enum DataOutput {
     NOT,
     BRIEF,
     FULL
