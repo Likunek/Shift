@@ -8,7 +8,7 @@ Maven: org.projectlombok:lombok:1.18.42
 
 Для запуска есть два способа:
 
-1.java -jar target\Shift-1.0.jar -s -a input1.txt input2.txt
+1. java -jar target\Shift-1.0.jar -s -a input1.txt input2.txt
 
 при необходимости: mvn clean package  (очищаем и создаем jar файл)
    
