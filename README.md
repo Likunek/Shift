@@ -12,4 +12,6 @@ Maven: org.projectlombok:lombok:1.18.42
 
 при необходимости: mvn clean package  (очищаем и создаем jar файл)
    
-2. mvn compile exec:java -Dexec.mainClass="Main" -Dexec.args="-o output -s input1.txt input2.txt"  (собирать напрямую через Maven)
+2. mvn compile exec:java -Dexec.mainClass="Main" -Dexec.args="-o output -s input1.txt input2.txt"
+  
+   (собирать напрямую через Maven)
